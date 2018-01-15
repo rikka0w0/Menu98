@@ -66,25 +66,33 @@ LRESULT CALLBACK WndProc_StartBtn(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lP
 
 typedef struct MENU98_INIT_T {
 	HWND hWnd_TaskBar;
-	FPT_TrackPopupMenuEx __TrackPopupMenuEx;
-	UINT32 DPI;
+	void* TrackPopupMenuEx;
+	LPSTR cmdLine;
 } MENU98_INIT;
 FPT_TrackPopupMenuEx MyTrackPopupMenuEx;
 
 extern "C" _declspec(dllexport) DWORD  __cdecl  __Menu98Init(MENU98_INIT* initInfo) {
 	HWND hWnd_TaskBar = initInfo->hWnd_TaskBar;
+	LPSTR lpszCmdLine = initInfo->cmdLine;
 
-	hWnd_StartBtn = FindWindowEx(hWnd_TaskBar, nullptr, L"Start", nullptr);
+	if (strlen(lpszCmdLine) == 0) {	// No start cmd, assume Windows 10
+		hWnd_StartBtn = FindWindowEx(hWnd_TaskBar, nullptr, L"Start", nullptr);
+	} else if (lpszCmdLine[0] == '!') {
+		lpszCmdLine++;
+		hWnd_StartBtn = FindWindowExA(hWnd_TaskBar, 0, lpszCmdLine, nullptr);
+	} else {
+		hWnd_StartBtn = FindWindowA(lpszCmdLine, nullptr);
+	}
+
 	if (IsWindow(hWnd_StartBtn)) {
 		OldWndProc_StartBtn = GetWindowLongPtr(hWnd_StartBtn, GWLP_WNDPROC);
 		if (OldWndProc_StartBtn != 0)
 			SetWindowLongPtr(hWnd_StartBtn, GWLP_WNDPROC, (LONG_PTR)&WndProc_StartBtn);
-	}
-	else {
-		MessageBoxA(0, "I`m fucked!", "", 0);
+	} else {
+		MessageBoxA(0, "Could not find the Start Orb, is your injection parameter correct?", "Fatal Error - Menu98", MB_ICONEXCLAMATION);
 	}
 
-	MyTrackPopupMenuEx = initInfo->__TrackPopupMenuEx;
+	MyTrackPopupMenuEx = (FPT_TrackPopupMenuEx) initInfo->TrackPopupMenuEx;
 
 	return 0;
 }
