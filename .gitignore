@@ -35,8 +35,6 @@ Ankh.NoLoad
 #GCC files
 *.o
 *.d
-*.res
-*.dll
 *.a
 
 #Visual Studio Code files
