@@ -1,0 +1,16 @@
+<root style="0" popup="0" text="Windows 10" captionWidth="24" titleBarWidth="32" largeIconSize="32" smallIconSize="16" blankWidth="6" blankHeight="4">
+  <item text="About" icon="shell32.dll" index="23">mshta|vbscript:msgbox("Sample",64,"About")(window.close)</item>
+  <separator />
+  <item text="This PC" icon="imageres.dll" index="104">explorer.exe</item>
+  <item text="Control Panel" icon="shell32.dll" index="21">"explorer.exe"|"::{26EE0668-A00A-44D7-9371-BEB064C98683}"</item>
+  <item text="Registry Editor" icon="regedit.exe">C:\Windows\regedit.exe</item>
+  <item text="Run" icon="C:\Windows\system32\shell32.dll" index="24">"explorer.exe"|"shell:::{2559a1f3-21d7-11d4-bdaf-00c04f60b9f0}"</item>
+  <separator />
+  <submenu text="Power" icon="C:\Windows\system32\shell32.dll" index="112">
+    <item text="Sign Out" icon="C:\Windows\system32\shell32.dll" index="44">mshta|vbscript:msgbox("Not Set",64,"Info")(window.close)</item>
+    <item text="Sleep">mshta|vbscript:msgbox("Not Set",64,"Info")(window.close)</item>
+    <item text="Shut down" icon="shell32.dll" index="27">shutdown|-s -t 0</item>
+    <item text="Restart" icon="C:\Windows\system32\shell32.dll" index="146">mshta|vbscript:msgbox("Not Set",64,"Info")(window.close)</item>
+  </submenu>
+  <item text="Shutdown Windows" icon="C:\Windows\system32\shell32.dll" index="27">mshta|vbscript:CreateObject("Shell.Application").ShutdownWindows()(window.close)</item>
+</root>

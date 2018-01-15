@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F1FE2989-5714-4C3D-9DD8-83FE22244D73}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MenuConfig</RootNamespace>
+    <AssemblyName>MenuConfig</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Config.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Installer.cs" />
+    <Compile Include="MenuControll.cs" />
+    <Compile Include="WinUtils\DPI.cs" />
+    <Compile Include="WinUtils\IconManager.cs" />
+    <Compile Include="WinUtils\Dialogs\InputBox.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinUtils\Dialogs\PickIconDialog.cs" />
+    <Compile Include="WinUtils\FormUtils.cs" />
+    <Compile Include="WinUtils\Dialogs\TaskDialog.cs" />
+    <Compile Include="WinUtils\ToolStripNonClientRenderer.cs" />
+    <Compile Include="WinUtils\Win10Style.cs" />
+    <Compile Include="WinUtils\Win7Style.cs" />
+    <Compile Include="WinUtils\WinAPI.cs" />
+    <Compile Include="WinUtils\WinVer.cs" />
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MinimizeP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MinimizeS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shadow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MinimizeI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SubMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seperator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu98_x86.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu98_x64.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Install.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config.ico" />
+    <None Include="Resources\TMT_x86.dll" />
+    <None Include="Resources\TMT_x64.dll" />
+    <None Include="Resources\x64" />
+    <None Include="Resources\x86" />
+    <None Include="Resources\x86.dll" />
+    <None Include="Resources\Config.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
