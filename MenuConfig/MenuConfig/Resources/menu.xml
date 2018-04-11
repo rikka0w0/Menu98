@@ -1,16 +1,34 @@
-<root style="0" popup="0" text="Windows 10" captionWidth="24" titleBarWidth="32" largeIconSize="32" smallIconSize="16" blankWidth="6" blankHeight="4">
-  <item text="About" icon="shell32.dll" index="23">mshta|vbscript:msgbox("Sample",64,"About")(window.close)</item>
-  <separator />
-  <item text="This PC" icon="imageres.dll" index="104">explorer.exe</item>
-  <item text="Control Panel" icon="shell32.dll" index="21">"explorer.exe"|"::{26EE0668-A00A-44D7-9371-BEB064C98683}"</item>
-  <item text="Registry Editor" icon="regedit.exe">C:\Windows\regedit.exe</item>
-  <item text="Run" icon="C:\Windows\system32\shell32.dll" index="24">"explorer.exe"|"shell:::{2559a1f3-21d7-11d4-bdaf-00c04f60b9f0}"</item>
-  <separator />
-  <submenu text="Power" icon="C:\Windows\system32\shell32.dll" index="112">
-    <item text="Sign Out" icon="C:\Windows\system32\shell32.dll" index="44">mshta|vbscript:msgbox("Not Set",64,"Info")(window.close)</item>
-    <item text="Sleep">mshta|vbscript:msgbox("Not Set",64,"Info")(window.close)</item>
-    <item text="Shut down" icon="shell32.dll" index="27">shutdown|-s -t 0</item>
-    <item text="Restart" icon="C:\Windows\system32\shell32.dll" index="146">mshta|vbscript:msgbox("Not Set",64,"Info")(window.close)</item>
+<?xml version="1.0"?>
+<root blankHeight="4" blankWidth="6" smallIconSize="16" largeIconSize="32" titleBarWidth="32" captionWidth="24" text="Windows 10" popup="0" style="2">
+  <item text="This PC" index="104" icon="imageres.dll">explorer.exe</item>
+  <item text="Command Prompt" icon="C:\WINDOWS\System32\cmd.exe">cmd.exe</item>
+  <item text="Bash" icon="C:\Users\Administrator\AppData\Local\lxss\bash.ico">bash.exe</item>
+  <separator/>
+  <submenu text="Programs" index="153" icon="C:\WINDOWS\System32\imageres.dll">
+    <separator/>
+    <item text="Registry Editor" icon="regedit.exe" size="16">C:\Windows\regedit.exe</item>
   </submenu>
-  <item text="Shutdown Windows" icon="C:\Windows\system32\shell32.dll" index="27">mshta|vbscript:CreateObject("Shell.Application").ShutdownWindows()(window.close)</item>
+  <submenu text="Documents" index="117" icon="C:\WINDOWS\System32\imageres.dll">
+    <item text="C:\" index="31" icon="C:\WINDOWS\System32\imageres.dll" size="32">C:\Windows\explorer.exe|c:</item>
+    <item text="D:\" index="30" icon="C:\WINDOWS\System32\imageres.dll" size="32">C:\Windows\explorer.exe|d:</item>
+  </submenu>
+  <submenu text="Settings" index="143" icon="C:\Windows\System32\imageres.dll">
+    <item text="Control Panel" index="21" icon="shell32.dll" size="16">shell:::{26EE0668-A00A-44D7-9371-BEB064C98683}</item>
+    <item text="Settings" index="75" icon="C:\WINDOWS\System32\imageres.dll">ms-settings:</item>
+    <item text="Installed Updates" index="46" icon="C:\WINDOWS\System32\shell32.dll">shell:::{d450a8a1-9568-45c7-9c0e-b4f9fb4537bd}</item>
+    <item text="Printers" index="16" icon="C:\WINDOWS\System32\shell32.dll">shell:::{863aa9fd-42df-457b-8e4d-0de1b8015c60}</item>
+    <item text="Internet Settings" index="26" icon="C:\WINDOWS\System32\inetcpl.cpl" size="16">c:\windows\system32\rundll32.exe|C:\WINDOWS\system32\shell32.dll, Control_RunDLL C:\WINDOWS\System32\inetcpl.cpl,</item>
+    <item text="Folder Options" index="4" icon="C:\WINDOWS\System32\shell32.dll">shell:::{6DFD7C5C-2451-11d3-A299-00C04F8EF6AF}</item>
+    <separator/>
+    <item text="About" index="23" icon="shell32.dll">mshta|vbscript:msgbox("Sample",64,"About")(window.close)</item>
+  </submenu>
+  <item text="Run" index="24" icon="C:\Windows\system32\shell32.dll">"explorer.exe"|"shell:::{2559a1f3-21d7-11d4-bdaf-00c04f60b9f0}"</item>
+  <separator/>
+  <submenu text="Power" index="112" icon="C:\Windows\system32\shell32.dll">
+    <item text="Sign Out" index="44" icon="C:\Windows\system32\shell32.dll">logoff</item>
+    <item text="Sleep" index="96" icon="C:\Windows\System32\imageres.dll">rundll32.exe|powrprof.dll,SetSuspendState 0,1,0</item>
+    <item text="Shut down" index="27" icon="shell32.dll">shutdown|-s -t 0</item>
+    <item text="Restart" index="228" icon="C:\WINDOWS\System32\imageres.dll">shutdown|/r /t 0</item>
+  </submenu>
+  <item text="Shutdown Windows" index="27" icon="C:\Windows\system32\shell32.dll">mshta|vbscript:CreateObject("Shell.Application").ShutdownWindows()(window.close)</item>
 </root>
